@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "6f16d4b3-634f-4ad6-9f3b-dcb83448a87c",
+		"name": "Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27584207"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/pizzafreddy/product",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"pizzafreddy",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/pizzafreddy/product/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"pizzafreddy",
+						"product",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Пицца Шурик",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "info",
+							"value": "Пиздюк",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/C:/Users/daniil/Desktop/шурик.jpg",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "228",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "price_sale",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "pizza",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/pizzafreddy/product?name=Напиток Черноголовка Байкал&info=0,5 л&price=70&category=portable",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"pizzafreddy",
+						"product"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Напиток Черноголовка Байкал"
+						},
+						{
+							"key": "info",
+							"value": "0,5 л"
+						},
+						{
+							"key": "img",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "70"
+						},
+						{
+							"key": "price_sale",
+							"value": "50",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "portable"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "_method",
+							"value": "PUT",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "4 пиццы",
+							"type": "text"
+						},
+						{
+							"key": "info",
+							"value": "Настоящая дегустация. Три маленькие пиццы по суперцене. Цена комбо зависит от выбранных пицц и может быть увеличена",
+							"type": "text"
+						},
+						{
+							"key": "img",
+							"value": "https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/56cb403e2c1b4c8f84d782ec0dd15110_292x292.webp",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "800",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "combo",
+							"type": "text"
+						},
+						{
+							"key": "price_sale",
+							"value": "750",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/pizzafreddy/product/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"pizzafreddy",
+						"product",
+						"5"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "5 пиццы",
+							"disabled": true
+						},
+						{
+							"key": "info",
+							"value": "Настоящая дегустация. Три маленькие пиццы по суперцене. Цена комбо зависит от выбранных пицц и может быть увеличена",
+							"disabled": true
+						},
+						{
+							"key": "img",
+							"value": "https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/56cb403e2c1b4c8f84d782ec0dd15110_292x292.webp",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "800",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "combo",
+							"disabled": true
+						},
+						{
+							"key": "_method",
+							"value": "PUT",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/pizzafreddy/category/pizza",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"pizzafreddy",
+						"category",
+						"pizza"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "_method",
+							"value": "DELETE",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/pizzafreddy/product/9",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"pizzafreddy",
+						"product",
+						"9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
