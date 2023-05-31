@@ -21,7 +21,7 @@ class ProductStoreRequest extends FormRequest
         return [
             'name' => 'required|min:3|max:50',
             'info' => 'required|max:255',
-            'img' => 'required',
+            'img' => 'required|file|mimes:jpg,png',
             'price' => 'required|numeric',
             'price_sale' => 'nullable|numeric',
             'category' => 'required|min:3|max:10'
@@ -41,7 +41,9 @@ class ProductStoreRequest extends FormRequest
                 'max' => 'Поле Info должно быть не больше 255',
             ],
             'img' => [
-                'required' => 'Поле Img не заполнено',
+                'required' => 'Изображение отсутсвует',
+                'file' => 'Ошибка с файлом изображения',
+                'mimes' => 'Формат файла изображения должен быть: .jpg .png',
             ],
             'price' => [
                 'numeric' => 'Поле Price должно содержать только числа',

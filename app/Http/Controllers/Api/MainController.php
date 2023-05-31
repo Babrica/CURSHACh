@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
 {
@@ -34,7 +35,12 @@ class MainController extends Controller
 
     public function store(ProductStoreRequest $request)
     {
-        $created_product = Product::create($request->validated());
+        $created_product = $request->validated();
+//        $created_product = Product::create($request->validated());
+//        $img = $created_product['img'];
+//        Storage::put('/images', $img);
+        $created_product['img'] = Storage::put('/images', $created_product['img']);
+        Product::firstOrCreate($created_product);
         return $created_product;
     }
 

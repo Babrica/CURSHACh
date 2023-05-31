@@ -32,6 +32,7 @@ class UserStoreRequest extends FormRequest
             //'number' => 'required|regex:/^\+7\d{10}$/i|unique:App\Models\User,number',
             'number' => 'required|regex:/^\+?7\d{10}$/|unique:App\Models\User,number',
             'is_admin' => 'nullable|boolean',
+            'ava' => 'nullable|file|mimes:jpg,png'
         ];
 
         switch ($this->getMethod())
@@ -62,6 +63,10 @@ class UserStoreRequest extends FormRequest
                         Rule::unique('users')->ignore($this->number, 'number')
                     ],
                     'is_admin' => 'nullable|boolean',
+                    'ava' => [
+                        'file' => 'Ошибка с файлом изображения',
+                        'mimes' => 'Формат файла изображения должен быть: .jpg .png',
+                    ],
                 ];
         }
     }
@@ -109,6 +114,10 @@ class UserStoreRequest extends FormRequest
                 'required' => 'Поле Number не заполнено',
                 'unique' => 'Данный номер уже занят',
                 'regex' => 'Номер должен быть по типу: +7XXXXXXXXXX',
+            ],
+            'ava' => [
+                'file' => 'Ошибка с файлом изображения',
+                'mimes' => 'Формат файла изображения должен быть: .jpg .png',
             ],
         ];
     }
