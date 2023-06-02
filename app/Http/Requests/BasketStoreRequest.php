@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Employee;
 
-class EmployeeStoreRequest extends FormRequest
+class BasketStoreRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -20,7 +20,9 @@ class EmployeeStoreRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'name' => 'required|string|max:255',
+            'user_id' => 'required|integer|max:11|exists:users,id',
+            'product_id' => 'required|max:11|integer|exists:products,id',
+            'amount' => 'max:11|integer',
         ];
 
         switch ($this->getMethod())
@@ -29,8 +31,7 @@ class EmployeeStoreRequest extends FormRequest
                 return $rules;
             case 'PUT':
                 return [
-                    'active' => 'required|integer|digits_between:0,1',
-                    'order_id' => 'required|integer|max:11',
+                    'amount' => 'required|max:11|integer',
                 ];
         }
     }
@@ -38,20 +39,22 @@ class EmployeeStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'name' => [
-              'required' => 'Поле Name не заполнено',
-              'string' => 'Должно состоять полностью из букв',
-              'max' => 'Максимально 255 символов',
-            ],
-            'active' => [
-              'required' => 'Поле active не заполнено',
-              'integer' => 'Должно быть целым числом',
-              'digits_between' => 'Должно быть 0 или 1',
-            ],
-            'order_id' => [
-                'required' => 'Поле order_id не заполнено',
+            'user_id' => [
+                'required' => 'Ошибка id пользователя',
                 'integer' => 'Должно быть целым числом',
-                'max' => 'Максимально 11 символов',
+                'exists' => 'Пользователь не найден',
+                'max:11' => 'id должно быть не больше 11',
+            ],
+            'product_id' => [
+                'required' => 'Ошибка id продукта',
+                'integer' => 'Должно быть целым числом',
+                'exists' => 'Продукт не найден',
+                'max:11' => 'id должно быть не больше 11',
+            ],
+            'amount' => [
+                'required' => 'Ошибка количества продукта',
+                'integer' => 'Должно быть целым числом',
+                'max:11' =>  'Должно быть не больше 11',
             ],
         ];
     }

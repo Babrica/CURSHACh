@@ -26,6 +26,10 @@ class ProductStoreRequest extends FormRequest
             'price_sale' => 'nullable|numeric',
             'category' => 'required|min:3|max:10',
         ];
+        /*digits_between:min,max
+        prohibited - Проверяемое поле должно быть пустым или отсутствовать.
+        required_if:anotherfield,value - Проверяемое поле должно присутствовать и не быть пустым, если поле anotherfield равно любому value.
+        */
     }
 
     public function messages()

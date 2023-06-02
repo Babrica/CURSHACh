@@ -28,8 +28,6 @@ class UserStoreRequest extends FormRequest
             'email' => 'required|email|max:255|min:5|unique:App\Models\User,email',
             'password' => 'required|max:255|min:6',
             'address' => 'required|max:255|min:5',
-            //'number' => 'required|integer|numeric|max:11|min:11|unique:App\Models\User,number',
-            //'number' => 'required|regex:/^\+7\d{10}$/i|unique:App\Models\User,number',
             'number' => 'required|regex:/^\+?7\d{10}$/|unique:App\Models\User,number',
             'is_admin' => 'nullable|boolean',
             'ava' => 'nullable|file|mimes:jpg,png'
