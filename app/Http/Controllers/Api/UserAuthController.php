@@ -34,7 +34,7 @@ class UserAuthController extends Controller
             'number' => $request->number,
             'ava' => $request->ava,
         ]);
-
+        $user->assignRole('user');
 //        $user = $request->validated();
         $user->save();
         return Response(['message' => 'Registered'], 200);
