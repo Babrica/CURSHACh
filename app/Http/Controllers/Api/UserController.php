@@ -21,17 +21,17 @@ class UserController extends Controller
     {
 //        $created_user = User::create($request->validated());
 //        return $created_user;
-        $created_user = $request->validated();
-        if(!empty($created_user['ava']))
-        {
-            $created_user['ava'] = Storage::put('/ava', $created_user['ava']);
-        }
-        else
-        {
-            $created_user['ava'] = 'ava/avatar.jpg';
-        }
-        User::firstOrCreate($created_user);
-        return $created_user;
+//        $created_user = $request->validated();
+//        if(!empty($created_user['ava']))
+//        {
+//            $created_user['ava'] = Storage::put('/ava', $created_user['ava']);
+//        }
+//        else
+//        {
+//            $created_user['ava'] = 'ava/avatar.jpg';
+//        }
+//        User::firstOrCreate($created_user);
+//        return $created_user;
     }
 
     public function show(string $id)

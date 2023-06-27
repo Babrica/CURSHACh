@@ -7,38 +7,35 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\BasketController;
+use App\Http\Controllers\Api\UserAuthController;
 
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
 
-Route::apiResources
-([
-    '/product' => MainController::class,
-]);
+Route::post('login', [UserAuthController::class, 'loginUser']);
+Route::post('register', [UserAuthController::class, 'registerUser']);
 
-Route::apiResources
-([
-    '/user' => UserController::class,
-]);
+Route::group(['middleware' => 'auth:sanctum'], function (){
+    Route::get('userdetails', [UserAuthController::class, 'userDetails']);
+    Route::get('logout', [UserAuthController::class, 'logout']);
 
-Route::apiResources
-([
-    '/order' => OrderController::class,
-]);
+    Route::apiResources(['/product' => MainController::class,]);
 
-Route::apiResources
-([
-    '/employee' => EmployeeController::class,
-]);
+    Route::apiResources(['/user' => UserController::class,]);
 
-Route::apiResources
-([
-    '/basket' => BasketController::class,
-]);
+    Route::apiResources(['/order' => OrderController::class,]);
 
-Route::get('/category/{category}', [MainController::class, 'category']);
-Route::put('/setemployee/{id}', [EmployeeController::class, 'setEmployee']);
-Route::put('/unemployee/{id}', [EmployeeController::class, 'unEmployee']);
+    Route::apiResources(['/employee' => EmployeeController::class,]);
+
+    Route::apiResources(['/basket' => BasketController::class,]);
+
+    Route::get('/category/{category}', [MainController::class, 'category']);
+    Route::put('/setemployee/{id}', [EmployeeController::class, 'setEmployee']);
+    Route::put('/unemployee/{id}', [EmployeeController::class, 'unEmployee']);
+});
+
+
+
 
 

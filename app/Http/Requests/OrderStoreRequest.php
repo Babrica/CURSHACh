@@ -21,7 +21,7 @@ class OrderStoreRequest extends FormRequest
         return [
             'user_id' => 'required|integer|max:11|exists:users,id',
             'product_id' => 'required|max:11|integer|exists:products,id',
-            'address' => 'nullable|min:5|max:255',
+            'address' => 'required|min:5|max:255',
             'employee_id' => 'nullable|max:11|integer|exists:employees,id',
         ];
     }
